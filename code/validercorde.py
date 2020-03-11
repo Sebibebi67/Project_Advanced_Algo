@@ -23,8 +23,8 @@ def coupe(c,i,j):
 			return True
 	return False
 
-def validerCorde(c,i,j):
-	if j>=i-1 and j<=i+1:
+def validerCorde(c,l,i,j):
+	if j>=i-1 and j<=i+1 or (j==l-1 and i==0) or (i==l-1 and j==0):
 		return False
 	return not exist(c,i,j) and not coupe(c,i,j)
 
