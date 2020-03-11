@@ -28,6 +28,7 @@ fonction coupe
                 renvoie vrai
             finSi
         finPour
+        renvoie faux
     fin
 fin
 
@@ -44,6 +45,8 @@ fonction intersectionDroites
 
         si min1 < min2 < max1 < max2 ou min2 < min1 < max2 < max1 alors
             renvoie vrai
+        sinon
+            renvoie faux
         finSi
     fin
 fin
