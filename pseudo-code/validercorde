@@ -34,21 +34,18 @@ fin
 
 fonction intersectionDroites
     var entiers a,b,c,d
-    \\on suppose la liste S des sommets existante
+
     début
-        A = S[a]
-        B = S[b]
-        C = S[c]
-        D = S[d]
+        min1 := min(a,b)
+        max1 := max(a,b)
 
-        a1 = (A.y - B.y) / (A.x - B.x)
-        b1 = A.y - a1*A.x
+        min2 := min(c,d)
+        max2 := max(c,d)
 
-        a2 = (C.y - D.y) / (C.x - D.x)
-        b2 = C.y - a2*C.x
-
-        si a1 = a2 alors
+        si min1 < min2 < max1 < max2 ou min2 < min1 < max2 < max1 alors
             renvoie vrai
         finSi
+    fin
+fin
 
-        https://openclassrooms.com/forum/sujet/calcul-du-point-d-intersection-de-deux-segments-21661
+    

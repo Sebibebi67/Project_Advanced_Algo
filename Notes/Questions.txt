@@ -1,6 +1,6 @@
 A) Questions préliminaires
 
-    1. Chaque sommet peut-être relié aux n autres, sachant que chaque point est adjacent à 2 autres. Ainsi, on arrive à la solution que pour un polygome à n sommets, il y a au plus (n-3) + Σ(de i=0 à n-3) k cordes (justification par rec)
+    1. Chaque sommet peut-être relié aux n autres, sachant que chaque point est adjacent à 2 autres. Ainsi, on arrive à la solution que pour un polygome à n sommets, il y a au plus (2 parmi n) -n cordes (justification par rec)
 
     2.mq toutes les triangulations d'un polygone à n sommets comportent le même nombre de cordes
         -> on peut décomposer tout polygone convexe à 4 cotés en 2 triangles.
