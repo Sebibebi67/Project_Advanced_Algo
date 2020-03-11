@@ -1,17 +1,17 @@
 
 
 fonction validerCorde
-    var entier i,j
+    var entiers i,j
     début :
-        renvoie non existe(i,j) et coupe(i,j)
+        renvoie non existe(i,j) et non coupe(i,j)
     fin
 fin
 
 fonction existe
-    var entier i,j
+    var entiers i,j
     \\On supposera la liste L de couple (a,b) existante, où a et b sont 2 sommets du polygone considéré
     début :
-        Pour k < L.longueur faire
+        Pour k < L.longueur alors
             si (L[k].a = i et L[k].b = j) ou (L[k].a = j et L[k].b = j) faire
                 renvoie vrai
             finSi
@@ -21,6 +21,34 @@ fonction existe
 fin
 
 fonction coupe
-    var entier i,j
+    var entiers i,j
     début
-        Pour
+        Pour k < L.longueur faire
+            si intersectionDroites(i,j,L[k].a, L[k].b) alors
+                renvoie vrai
+            finSi
+        finPour
+        renvoie faux
+    fin
+fin
+
+
+fonction intersectionDroites
+    var entiers a,b,c,d
+
+    début
+        min1 := min(a,b)
+        max1 := max(a,b)
+
+        min2 := min(c,d)
+        max2 := max(c,d)
+
+        si min1 < min2 < max1 < max2 ou min2 < min1 < max2 < max1 alors
+            renvoie vrai
+        sinon
+            renvoie faux
+        finSi
+    fin
+fin
+
+    
