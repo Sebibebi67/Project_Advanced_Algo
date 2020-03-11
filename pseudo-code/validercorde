@@ -1,0 +1,26 @@
+
+
+fonction validerCorde
+    var entier i,j
+    début :
+        renvoie non existe(i,j) et coupe(i,j)
+    fin
+fin
+
+fonction existe
+    var entier i,j
+    \\On supposera la liste L de couple (a,b) existante, où a et b sont 2 sommets du polygone considéré
+    début :
+        Pour k < L.longueur faire
+            si (L[k].a = i et L[k].b = j) ou (L[k].a = j et L[k].b = j) faire
+                renvoie vrai
+            finSi
+        finPour
+        renvoie faux
+    fin
+fin
+
+fonction coupe
+    var entier i,j
+    début
+        Pour
