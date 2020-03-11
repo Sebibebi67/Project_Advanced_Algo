@@ -3,7 +3,7 @@
 fonction validerCorde
     var entiers i,j
     début :
-        renvoie non existe(i,j) et coupe(i,j)
+        renvoie non existe(i,j) et non coupe(i,j)
     fin
 fin
 
