@@ -23,8 +23,10 @@ def coupe(i,j):
 			return True
 	return False
 
-def verifCorde(i,j):
+def validerCorde(i,j):
+	if i==j:
+		return False
 	return not exist(i,j) and not coupe(i,j)
 
 
-#print(verifCorde(5,1))
+print(validerCorde(2,2))
