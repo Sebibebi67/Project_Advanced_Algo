@@ -1,17 +1,17 @@
 
 
 fonction validerCorde
-    var entier i,j
+    var entiers i,j
     début :
         renvoie non existe(i,j) et coupe(i,j)
     fin
 fin
 
 fonction existe
-    var entier i,j
+    var entiers i,j
     \\On supposera la liste L de couple (a,b) existante, où a et b sont 2 sommets du polygone considéré
     début :
-        Pour k < L.longueur faire
+        Pour k < L.longueur alors
             si (L[k].a = i et L[k].b = j) ou (L[k].a = j et L[k].b = j) faire
                 renvoie vrai
             finSi
@@ -21,6 +21,34 @@ fonction existe
 fin
 
 fonction coupe
-    var entier i,j
+    var entiers i,j
     début
-        Pour
+        Pour k < L.longueur faire
+            si intersectionDroites(i,j,L[k].a, L[k].b) alors
+                renvoie vrai
+            finSi
+        finPour
+    fin
+fin
+
+
+fonction intersectionDroites
+    var entiers a,b,c,d
+    \\on suppose la liste S des sommets existante
+    début
+        A = S[a]
+        B = S[b]
+        C = S[c]
+        D = S[d]
+
+        a1 = (A.y - B.y) / (A.x - B.x)
+        b1 = A.y - a1*A.x
+
+        a2 = (C.y - D.y) / (C.x - D.x)
+        b2 = C.y - a2*C.x
+
+        si a1 = a2 alors
+            renvoie vrai
+        finSi
+
+        https://openclassrooms.com/forum/sujet/calcul-du-point-d-intersection-de-deux-segments-21661
