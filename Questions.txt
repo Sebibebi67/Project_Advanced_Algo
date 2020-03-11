@@ -1,0 +1,5 @@
+A) Questions préliminaires
+
+    1. Chaque sommet peut-être relié aux n autres, sachant que chaque point est adjacent à 2 autres. Ainsi, on arrive à la solution que pour un polynome à n sommets, il y a au plus (n-3)Σ(de i=0 à n-3) k cordes
+    2.
+
