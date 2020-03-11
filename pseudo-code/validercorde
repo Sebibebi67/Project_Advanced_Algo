@@ -3,6 +3,9 @@
 fonction validerCorde
     var entiers i,j
     début :
+        si (j ≥ i-1 et j ≤ i+1) ou (i = 0 et j = n-1) ou (i = n-1 et j)= 0 ) alors
+            renvoie faux
+        finSi
         renvoie non existe(i,j) et non coupe(i,j)
     fin
 fin
@@ -11,8 +14,8 @@ fonction existe
     var entiers i,j
     \\On supposera la liste L de couple (a,b) existante, où a et b sont 2 sommets du polygone considéré
     début :
-        Pour k < L.longueur alors
-            si (L[k].a = i et L[k].b = j) ou (L[k].a = j et L[k].b = j) faire
+        Pour k dans L alors
+            si (k.a = i et k.b = j) ou (k.a = j et k.b = j) faire
                 renvoie vrai
             finSi
         finPour
@@ -22,9 +25,10 @@ fin
 
 fonction coupe
     var entiers i,j
+    \\On supposera la liste L de couple (a,b) existante, où a et b sont 2 sommets du polygone considéré
     début
-        Pour k < L.longueur faire
-            si intersectionDroites(i,j,L[k].a, L[k].b) alors
+        Pour k dans L faire
+            si intersectionCordes(i,j,k.a, k.b) alors
                 renvoie vrai
             finSi
         finPour
@@ -33,7 +37,7 @@ fonction coupe
 fin
 
 
-fonction intersectionDroites
+fonction intersectionCordes
     var entiers a,b,c,d
 
     début

@@ -1,0 +1,31 @@
+
+
+fonction essaisSuccessifs1
+    var Liste<couple> cordesValides
+    var Liste<couple> cordesTracees = {} //les cordes tracées au cours de l'essais
+    var entier n
+    //On considère la liste S de sommets construite
+
+    début
+        pour i < S.longueur faire
+            cordesValides := []
+
+            pour j < S.longueur faire
+                si validerCorde(i,j) alors
+                    cordesValides apprend (i,j)
+                finSi
+            finPour
+
+            //tirage aléatoire de n de l'indice de la corde à tracer
+            n := random(0, cordesValides.longueur-1)
+
+            cordesTracees apprend cordesValides[n]
+        finPour
+        renvoie cordesTracees
+    fin
+fin
+
+            
+            
+
+
