@@ -3,7 +3,7 @@
 fonction validerCorde
     var entiers i,j
     début :
-        si j ≥ i-1 et j ≤ i+1 alors
+        si (j ≥ i-1 et j ≤ i+1) ou (i = 0 et j = n-1) ou (i = n-1 et j)= 0 ) alors
             renvoie faux
         finSi
         renvoie non existe(i,j) et non coupe(i,j)
