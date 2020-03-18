@@ -11,15 +11,16 @@ def essaisSuccessifs():
 	for i in range(len(s)):
 		possible = []
 		for j in range(len(s)):
-			print(i,j)
+			#print(i,j)
 			if validerCorde(c,len(s),i,j):
 				possible.append((i,j))
 		if len(possible)>0:
 			c.append(possible[r.randint(0,len(possible)-1)])
 	return c
 
-a = essaisSuccessifs()
-print(a)
-displayWithCorde(s,a)
+for i in range(10):
+	a = essaisSuccessifs()
+	print(a)
+	displayWithCorde(s,a)
 
 
