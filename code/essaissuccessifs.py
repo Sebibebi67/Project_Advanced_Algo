@@ -18,13 +18,13 @@ def essaisSuccessifs():
 			c.append(possible[r.randint(0,len(possible)-1)])
 	return c
 
-for i in range(10):
-	a = essaisSuccessifs()
-	print(a)
-	if (len(a)==len(s)-3):
-		print("On obtient une triangulation valide !")
-	else:
-		print("On obtient une triangulation non valide !")
-	displayWithCorde(s,a)
+#for i in range(10):
+#	a = essaisSuccessifs()
+#	print(a)
+#	if (len(a)==len(s)-3):
+#		print("On obtient une triangulation valide !")
+#	else:
+#		print("On obtient une triangulation non valide !")
+#	displayWithCorde(s,a)
 
 
