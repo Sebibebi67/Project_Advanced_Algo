@@ -21,6 +21,10 @@ def essaisSuccessifs():
 for i in range(10):
 	a = essaisSuccessifs()
 	print(a)
+	if (len(a)==len(s)-3):
+		print("On obtient une triangulation valide !")
+	else:
+		print("On obtient une triangulation non valide !")
 	displayWithCorde(s,a)
 
 
