@@ -6,3 +6,5 @@ A) Questions préliminaires
         -> on peut décomposer tout polygone convexe à 4 cotés en 2 triangles.
         -> par récurrence forte, on peut alors décomposer tout polygone à n coté en 2 polygones dont le nombre de coté est strictement inférieur à n
 
+    3.nombre de triangulations possibles n(n-3)/2
+
