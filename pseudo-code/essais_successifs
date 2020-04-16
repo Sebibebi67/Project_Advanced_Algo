@@ -2,7 +2,7 @@
 
 fonction essaisSuccessifs1
     var Liste<couple> cordesValides
-    var Liste<couple> cordesTracees = {} //les cordes tracées au cours de l'essais
+    var Liste<couple> cordesTracees = [] //les cordes tracées au cours de l'essais
     var entier n
     //On considère la liste S de sommets construite
 
