@@ -3,3 +3,4 @@ Fonctionnement recursif :
 Polygone à n cotés peut être découpé en 2 polygones qui eux même seront découpés
 
 Arrêt lorsqu'il ne reste que des polygones de 3 cotés => Triangles
+
