@@ -11,7 +11,7 @@ parcours de chaque point
 listeDesTriangulations = listeVide()
 triangulationRacine = listeVide()
 
-fonction essaiSuccessifs2(c, dist)
+fonction essaiSuccessifs2(triangulationRacine, dist)
     var Liste<Liste> listeDesTriangulations
     var nombreDeSommets
 
@@ -23,9 +23,9 @@ fonction essaiSuccessifs2(c, dist)
                 nouvelleTriangulation.ajouter(i,j)
                 si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
                     et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
-                    listeDesTriangulations ajouter (nouvelleTriangulation)
+                    listeDesTriangulations.ajouter(nouvelleTriangulation)
                 sinon
-                    essaiSuccessifs2(x, dist2)
+                    essaiSuccessifs2(nouvelleTriangulation, dist)
                 finSi
             finSi
         finPour
@@ -62,10 +62,10 @@ fonction essaiSuccessifs2AvecElaguage(triangulationRacine, dist)
                         et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
                         listeDesTriangulations.ajouter(nouvelleTriangulation)
                     sinon
-                        essaiSuccessifs2(x, dist2)
+                        essaiSuccessifs2AvecElaguage(nouvelleTriangulation, dist)
                     finsi
                 finsi
             finsi
         finpour
     finpour
-finfonction
+fin
