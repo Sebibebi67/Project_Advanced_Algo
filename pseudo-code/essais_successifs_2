@@ -10,23 +10,26 @@ parcours de chaque point
 
 listeDesTriangulations = listeVide()
 
-essaiSuccessifs2(c, dist)
-    pour 0 < i < nombreDeSommets
-        pour 0 < j < nombreDeSommets
+fonction essaiSuccessifs2(c, dist)
+    var Liste<Liste> listeDesTriangulations
+    var nombreDeSommets
+
+    pour 0 < i < nombreDeSommets faire:
+        pour 0 < j < nombreDeSommets faire:
             si validerCorde(i,j)
                 nouvelleTriangulation = copier(c)
                 dist += distanceCorde(i,j)
                 nouvelleTriangulation.ajouter(i,j)
                 si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
                     et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
-                    listeDesTriangulations.ajouter(nouvelleTriangulation)
+                    listeDesTriangulations ajouter (nouvelleTriangulation)
                 sinon
                     essaiSuccessifs2(x, dist)
-                finsi
-            finsi
-        finpour
-    finpour
-finPour
+                finSi
+            finSi
+        finPour
+    finPour
+fin
 
 #==================================================
 # Condition d'élaguage (Avoir la meilleure solution)
