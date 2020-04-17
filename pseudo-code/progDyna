@@ -1,0 +1,33 @@
+
+fonction initCorde(listeSommets, matriceDistances)
+    pour 0 < i < taille(listeSommets) faire
+        liste = listeVide()
+        pour 0 < j < taille(listeSommets) faire
+            si validerCorde(listeVide(), taille(listeSommets), i, j) alors
+                liste.ajouter(norme(listeSommets[i], listeSommets[j]))
+            sinon
+                liste.ajouter(0)
+            finSi
+        finPour
+    finPour
+finFonction
+
+matriceDistances = initCordes(listeSommets, matriceDistances)
+listeValeurTriangulation = listVide()
+
+fonction progDyna(nSommets, listeSommets, distance):
+    si nSommets = 3 alors
+        if taille(listeValeurTriangulation) = 0 ou distance < min(listeValeurTriangulation)
+            listeValeurTriangulation.ajouter(distance)
+        finSi
+
+        pour 0 < k < n faire
+            distance2 := distance + matriceDistances[listeSommets[k-1%nSommets]][listeSommets[k+1%nSommets]]
+            nouvelleListeSommets = copier(listeSommets)
+            nouvelleListeSommets.supprimerQueue()
+            progDyna(nSommets-1, nouvelleListeSommets, distance2)
+        finPour
+    finSi
+fin
+
+afficher(listeValeurTriangulation.queue()) # La meilleure triangulation a pour valeur la dernière valeur de la liste

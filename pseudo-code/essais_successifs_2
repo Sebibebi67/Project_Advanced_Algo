@@ -19,13 +19,13 @@ fonction essaiSuccessifs2(c, dist)
         pour 0 < j < nombreDeSommets faire:
             si validerCorde(i,j)
                 nouvelleTriangulation = copier(triangulationRacine)
-                dist += distanceCorde(i,j)
+                dist2 = distdistanceCorde(i,j)
                 nouvelleTriangulation.ajouter(i,j)
                 si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
                     et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
                     listeDesTriangulations ajouter (nouvelleTriangulation)
                 sinon
-                    essaiSuccessifs2(x, dist)
+                    essaiSuccessifs2(x, dist2)
                 finSi
             finSi
         finPour
@@ -55,14 +55,14 @@ fonction essaiSuccessifs2AvecElaguage(triangulationRacine, dist)
         pour 0 < j < nombreDeSommets
             si validerCorde(i,j)
                 nouvelleTriangulation = copier(triangulationRacine)
-                dist += distanceCorde(i,j)
+                dist2 = dist+distanceCorde(i,j)
                 nouvelleTriangulation.ajouter(i,j)
-                si estPlusCourt(listeDesTriangulations, dist)
+                si estPlusCourt(listeDesTriangulations, dist2)
                     si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
                         et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
                         listeDesTriangulations.ajouter(nouvelleTriangulation)
                     sinon
-                        essaiSuccessifs2(x, dist)
+                        essaiSuccessifs2(x, dist2)
                     finsi
                 finsi
             finsi

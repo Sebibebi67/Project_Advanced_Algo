@@ -6,23 +6,12 @@ import math as m
 from display import *
 from period import *
 
-s = [Point(0,0), Point(2,1), Point(3,2),Point(4,4), Point(4,5), Point(3,7), Point(2,8)]#, Point(0,9), Point(-1,9), Point(-3,8), Point(-4,7), Point(-5,5), Point(-5,4), Point(-4,2), Point(-3,1), Point(-1,0)
-
-C = []
-
 def initCordes(s, C):
 	for i in range(len(s)):
 		for j in range(len(s)):
 			if (validerCorde([], len(s), i, j)):
 				C.append((i, j, m.sqrt(m.pow(s[j].x-s[i].x, 2)+m.pow(s[j].y-s[i].y, 2))))
 	return C
-
-C = initCordes(s, C)
-#print(C, len(C))
-
-results = []
-
-c = []
 
 def doNotExist(a, la):
 	sa = set()
@@ -58,27 +47,48 @@ def essaisSuccessifs2(c, dist):
 			#print(i,j)
 			if validerCorde(c,len(s),i,j):
 				x = list(c)
-				dist += lenOf(i, j)
+				dist2 = dist+lenOf(i, j)
 				x.append((i,j))
-				#if (isShorter(results, dist)): #To use to find the best
 				if (len(x)==len(s)-3 and doNotExist(x,results)):
-					results.append((x, dist))
+					results.append((x, dist2))
 				else:
-					essaisSuccessifs2(x, dist)
-
-t1 = micro()
-essaisSuccessifs2(c, 0)
-t2 = micro()
-print(results,len(results))
-print("Durée du calcul : ",displayPeriod(t2-t1))
-
-#for i in range(10):
-#	a = essaisSuccessifs()
-#	print(a)
-#	if (len(a)==len(s)-3):
-#		print("On obtient une triangulation valide !")
-#	else:
-#		print("On obtient une triangulation non valide !")
-#	displayWithCorde(s,a)
+					essaisSuccessifs2(x, dist2)
 
 
+def essaisSuccessifs2AvecElagage(c, dist):
+	global results
+
+	for i in range(len(s)):
+		for j in range(len(s)):
+			#print(i,j)
+			if validerCorde(c,len(s),i,j):
+				x = list(c)
+				dist2 = dist+lenOf(i, j)
+				x.append((i,j))
+				if (isShorter(results, dist2)): #To use to find the best
+					if (len(x)==len(s)-3 and doNotExist(x,results)):
+						results.append((x, dist2))
+					essaisSuccessifs2AvecElagage(x, dist2)
+
+t = 0
+i = 4
+while t <= 60*2*10**6:
+	n = i
+	s = [Point(m.cos(2*k*m.pi/n),m.sin(2*k*m.pi/n)) for k in range(n)]
+	C = []
+	C = initCordes(s, C)
+	results = []
+	c = []
+
+	print(len(s))
+
+	t1 = micro()
+	essaisSuccessifs2AvecElagage(c, 0)
+	t2 = micro()
+	t = t2-t1
+
+	print("Meilleurs resultats :",results[-1],", sur un total de :", len(results))
+	print("Durée du calcul : ",displayPeriod(t))
+	#display(s)
+
+	i+=1
