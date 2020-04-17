@@ -66,13 +66,12 @@ def essaisSuccessifs2(c, dist):
 				else:
 					essaisSuccessifs2(x, dist)
 
-	return c
-
 t1 = micro()
 essaisSuccessifs2(c, 0)
 t2 = micro()
 print(results,len(results))
 print("Durée du calcul : ",displayPeriod(t2-t1))
+
 #for i in range(10):
 #	a = essaisSuccessifs()
 #	print(a)

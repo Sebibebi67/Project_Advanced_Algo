@@ -4,4 +4,61 @@ idée :
 parcours de chaque point
     -> pour chaque point, faire la liste des cordes tracables
 
+#==================================================
+# Avoir toutes les solutions une fois et une seule
+#==================================================
 
+listeDesTriangulations = listeVide()
+
+essaiSuccessifs2(c, dist)
+    pour 0 < i < nombreDeSommets
+        pour 0 < j < nombreDeSommets
+            si validerCorde(i,j)
+                nouvelleTriangulation = copier(c)
+                dist += distanceCorde(i,j)
+                nouvelleTriangulation.ajouter(i,j)
+                si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
+                    et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
+                    listeDesTriangulations.ajouter(nouvelleTriangulation)
+                sinon
+                    essaiSuccessifs2(x, dist)
+                finsi
+            finsi
+        finpour
+    finpour
+finPour
+
+#==================================================
+# Condition d'élaguage (Avoir la meilleure solution)
+#==================================================
+
+fonction estPlusCourt(listeDesTriangulations, nouvelleTriangulation)
+    if taille(listeDesTriangulations) == 0
+        retourner Vrai
+    finsi
+    triangulationMinimale = minimum(listeDesTriangulations)
+    si distanceTriangulation(nouvelleTriangulation) < minimum
+        retourner Vrai
+    finsi
+    returner Faux
+finfonction
+
+fonction essaiSuccessifs2AvecElaguage(c, dist)
+    pour 0 < i < nombreDeSommets
+        pour 0 < j < nombreDeSommets
+            si validerCorde(i,j)
+                nouvelleTriangulation = copier(c)
+                dist += distanceCorde(i,j)
+                nouvelleTriangulation.ajouter(i,j)
+                si estPlusCourt(listeDesTriangulations, dist)
+                    si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
+                        et (nouvelleTriangulation n'est pas dans listeDesTriangulations)
+                        listeDesTriangulations.ajouter(nouvelleTriangulation)
+                    sinon
+                        essaiSuccessifs2(x, dist)
+                    finsi
+                finsi
+            finsi
+        finpour
+    finpour
+finfonction
