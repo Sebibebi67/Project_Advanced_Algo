@@ -9,12 +9,13 @@ parcours de chaque point
 #==================================================
 
 listeDesTriangulations = listeVide()
+triangulationRacine = listeVide()
 
-essaiSuccessifs2(c, dist)
+essaiSuccessifs2(triangulationRacine, dist)
     pour 0 < i < nombreDeSommets
         pour 0 < j < nombreDeSommets
             si validerCorde(i,j)
-                nouvelleTriangulation = copier(c)
+                nouvelleTriangulation = copier(triangulationRacine)
                 dist += distanceCorde(i,j)
                 nouvelleTriangulation.ajouter(i,j)
                 si (nouvelleTriangulation.nombreDeCorde == nombreDeSommets-3) 
@@ -32,6 +33,9 @@ finPour
 # Condition d'élaguage (Avoir la meilleure solution)
 #==================================================
 
+listeDesTriangulations = listeVide()
+triangulationRacine = listeVide()
+
 fonction estPlusCourt(listeDesTriangulations, nouvelleTriangulation)
     if taille(listeDesTriangulations) == 0
         retourner Vrai
@@ -43,11 +47,11 @@ fonction estPlusCourt(listeDesTriangulations, nouvelleTriangulation)
     returner Faux
 finfonction
 
-fonction essaiSuccessifs2AvecElaguage(c, dist)
+fonction essaiSuccessifs2AvecElaguage(triangulationRacine, dist)
     pour 0 < i < nombreDeSommets
         pour 0 < j < nombreDeSommets
             si validerCorde(i,j)
-                nouvelleTriangulation = copier(c)
+                nouvelleTriangulation = copier(triangulationRacine)
                 dist += distanceCorde(i,j)
                 nouvelleTriangulation.ajouter(i,j)
                 si estPlusCourt(listeDesTriangulations, dist)
